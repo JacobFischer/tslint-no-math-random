@@ -1,0 +1,35 @@
+language: nodejs
+
+before_script:
+  - yarn install
+  - yarn build
+
+script:
+  - yarn lint
+  - yarn test
+
+after_success:
+  - npm pack # yes npm, yarn pack currently also uses the gitignore so the dist files are excluded (which we want)
+
+deploy:
+  - provider: pages
+    skip_cleanup: true
+    local_dir: docs/
+    github_token: $GH_TOKEN
+    on:
+      tags: true
+
+  - provider: releases
+    api_key: $GH_TOKEN
+    file_glob: true
+    file: "tslint-no-math-random-*.tgz"
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: npm
+    skip_cleanup: true
+    email: "jacob.t.fischer@gmail.com"
+    api_key: $NPM_TOKEN
+    on:
+      tags: true
