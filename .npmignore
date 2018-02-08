@@ -1,0 +1,10 @@
+tsconfig.json
+tslint.json
+.travis.yml
+src/
+test/
+.gitignore
+.npmignore
+
+// npm pack
+tslint-no-math-random-*.tgz

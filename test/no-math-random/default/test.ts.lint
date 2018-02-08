@@ -1,0 +1,6 @@
+const a = Math.random();
+          ~~~~~~~~~~~         [no-math-random]
+
+const b = Math.abs(-2);
+
+[no-math-random]: Calls to 'Math.random' are not allowed.
