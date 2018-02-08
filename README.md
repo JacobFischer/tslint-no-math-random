@@ -1,9 +1,10 @@
-# tslint-no-math-random
+# TSLint no-math-random Rule
 
-[TSLint][tslint] rule to disallow Math.random() usage.
+[TSLint][tslint] rule to disallow `Math.random()` usage.
 
 JavaScripts's built in `Math.random()` function is not seedable, not secure,
-and not really that random. So, how about we disable it completely.
+and not really that random. So, how about we disable it completely in projects
+where using it could cause something bad.
 
 ## Usage
 
@@ -13,12 +14,12 @@ Add this to your package's `devDependencies`, then in your tsconfig.json:
 {
     "rules": {
         "no-math-random": true
-    },
+    }
 }
 ```
 
 That's it! With this rule enabled any calls to `Math.random()` will result in a
-violation.
+linter error.
 
 ## The `ban` alternative
 
@@ -36,7 +37,7 @@ exmaple:
                 "message": "Use a better PRNG."
             }
         ]
-    },
+    }
 }
 ```
 
