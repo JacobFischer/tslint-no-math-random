@@ -59,4 +59,5 @@ typings/
 
 # build artifacts
 dist
+yarn-error.log
 *.tgz

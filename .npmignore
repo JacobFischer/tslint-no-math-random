@@ -3,7 +3,6 @@ tslint.json
 .travis.yml
 src/
 test/
-.gitignore
 .npmignore
 
 // npm pack
