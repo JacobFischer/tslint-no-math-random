@@ -12,13 +12,6 @@ after_success:
   - npm pack # yes npm, yarn pack currently also uses the gitignore so the dist files are excluded (which we want)
 
 deploy:
-  - provider: pages
-    skip_cleanup: true
-    local_dir: docs/
-    github_token: $GH_TOKEN
-    on:
-      tags: true
-
   - provider: releases
     api_key: $GH_TOKEN
     file_glob: true
