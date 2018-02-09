@@ -2,16 +2,20 @@
 
 [TSLint][tslint] rule to disallow `Math.random()` usage.
 
-JavaScripts's built in `Math.random()` function is not seedable, not secure,
+JavaScripts's built in `Math.random()` function is not seed-able, not secure,
 and not really that random. So, how about we disable it completely in projects
 where using it could cause something bad.
 
 ## Usage
 
-Add this to your package's `devDependencies`, then in your tsconfig.json:
+Add this to your package's `devDependencies`, then in your `tsconfig.json` add
+the following lines:
 
 ```json
 {
+    "extends": {
+        "tslint-no-math-random"
+    },
     "rules": {
         "no-math-random": true
     }
@@ -23,9 +27,10 @@ linter error.
 
 ## The `ban` alternative
 
-TSLint's built in rule [ban][ban] can accomplish much of what this repo allows.
+TSLint's built in rule [ban][ban] can accomplish much of what this package
+allows.
 
-exmaple:
+Example:
 
 ```json
 {
@@ -41,9 +46,9 @@ exmaple:
 }
 ```
 
-The main upside to this is that you don't need this pacskage; Hurrah! The only
+The main upside to this is that you don't need this package; Hurrah! The only
 downside is that if you selectively disable the `ban` rule for a line/block of
-code, you've disabled **all** banned syntax which could hypotehically allow
+code, you've disabled **all** banned syntax which could hypothetically allow
 other errors.
 
 Also, I think the rule name is clearer as `no-math-random` rather than `ban`;
@@ -62,7 +67,7 @@ I made this rule for two simple reasons:
 
 The only thing you probably care about is the first. But if you did not know,
 JS's built in Math.random() leaves lot to be desired (seeding), and is an easy
-trap to fall into if you want to get into crytography.
+trap to fall into if you want to get into cryptography.
 
 If in your project you use some superior source of randomness via some PRNG
 package, then you can ban the usage of JS's built-in PRNG using this rule!

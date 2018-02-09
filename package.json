@@ -1,6 +1,6 @@
 {
   "name": "tslint-no-math-random",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TSLint rule to disallow Math.random() usage",
   "main": "dist/index.js",
   "repository": "git@github.com:JacobFischer/tslint-no-math-random.git",
